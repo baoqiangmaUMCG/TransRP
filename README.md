@@ -8,3 +8,11 @@ The growing number of subtypes and treatment options for oropharyngeal squamous 
 The architecture of TransRP:
 ![image](https://user-images.githubusercontent.com/86932526/228285207-3acf0560-a547-41dd-89b7-aba1c94bdf2c.png)
 
+A command example of training TransRP models:
+
+python main.py --optimizer sgd  --batch_size 12  --oversample True --input_modality CT PT gtv --model TransRP_DenseNet121_m3 --fold 1 --data_path './Data/images_processed'
+
+
+A command example of testing TransRP models:
+
+python main.py --optimizer sgd  --batch_size 12  --oversample True --input_modality CT PT gtv --model TransRP_DenseNet121_m3 --fold 1 --data_path './Data/images_processed' --no_train --no_val --resume_id jobID_saved_in_wandb
