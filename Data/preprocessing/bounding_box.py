@@ -108,7 +108,7 @@ def bbox_auto(sitk_pt, pID, output_shape=(144, 144, 144), th=3):
 
 #
 patient_info_path = '../hecktor2022_clinical_data_training_processed.csv'
-pet_path = '../images/'
+pet_path = '../images/imagesTr'
 bb_save_path = '../bb_box/bb_box.csv'
 
 
