@@ -22,6 +22,7 @@ Run /Data/preprocessing/bb_box.py  and /Data/preprocessing/resample.py for image
 
 
 
+# Traning and test
 A command example of training TransRP models:
 
 python main.py --optimizer sgd  --batch_size 12  --oversample True --input_modality CT PT gtv --model TransRP_DenseNet121_m3 --fold 1 --data_path './Data/images_processed'
