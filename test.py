@@ -22,6 +22,8 @@ def test_hecktor(model, test_loader, device, opt, endpoint_info, test_ID, mode =
 
                 for image in opt.input_modality:
                     sub_data = test_data[image].to(device)
+                    if image == 'gtv':
+                        sub_data[sub_data > 0] = 1
                     test_images = torch.cat((test_images,sub_data), 1)
    
                 with torch.no_grad():
