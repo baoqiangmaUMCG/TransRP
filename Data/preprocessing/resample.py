@@ -10,10 +10,10 @@ import numpy as np
 import SimpleITK as sitk
 
 # Default paths
-path_in = './Data/hecktor2022/imagesTr/'
-path_label_in = './Data/hecktor2022/labelsTr/'
-path_out = './Data/hecktor2022/resampled/'
-path_bb = './Data/hecktor2022/bb_box/bb_box_training.csv'
+path_in = '../images/'
+path_label_in = '../images/'
+path_out = '../images_processed/'
+path_bb = '../bb_box/bb_box.csv'
 
 @click.command()
 @click.argument('input_folder', type=click.Path(exists=True), default=path_in)
