@@ -18,7 +18,7 @@ The architecture of TransRP:
 The HECKTOR 2022 training dataset can be downloaded from https://hecktor.grand-challenge.org/Data/. After downloading, the NIFTI files shoulde be saved in folder /Data/images/<br>
 
 Then, <br>
-Run /Data/preprocessing/bb_box.py  and /Data/preprocessing/resample.py for image data preprocessing, the processed images will be save din /Data/images_processes/ . 
+Run /Data/preprocessing/bounding_box.py  and /Data/preprocessing/resample.py for image data preprocessing, the processed images will be save din /Data/images_processes/ . 
 
 
 
