@@ -9,6 +9,7 @@ The growing number of subtypes and treatment options for oropharyngeal squamous 
 PyTorch 1.8.0<br>
 MONAI 1.0.0<br>
 Lifelines 0.27.3<br>
+Wandb 0.13.3<br>
 
 
 The architecture of TransRP:
