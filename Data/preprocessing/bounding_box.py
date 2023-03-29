@@ -107,9 +107,9 @@ def bbox_auto(sitk_pt, pID, output_shape=(144, 144, 144), th=3):
 
 
 #
-patient_info_path = '../Data/hecktor2022_clinical_data_training_processed.csv'
-pet_path = '../Data/images/'
-bb_save_path = '../Data/bb_box/bb_box.csv'
+patient_info_path = '../hecktor2022_clinical_data_training_processed.csv'
+pet_path = '../images/'
+bb_save_path = '../bb_box/bb_box.csv'
 
 
 bb_df = pd.DataFrame(columns=['PatientID', 'x1', 'x2', 'y1', 'y2', 'z1', 'z2'])
