@@ -10,8 +10,8 @@ import numpy as np
 import SimpleITK as sitk
 
 # Default paths
-path_in = '../images/'
-path_label_in = '../images/'
+path_in = '../images/imagesTr/'
+path_label_in = '../images/labelsTr/'
 path_out = '../images_processed/'
 path_bb = '../bb_box/bb_box.csv'
 
