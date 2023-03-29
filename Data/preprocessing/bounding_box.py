@@ -1,4 +1,4 @@
-# The code is created by Baoqiang Ma to extract a bouding box including primary tumor and lymph nodes for each patient, as well as obtain PET nii without brain
+# The code is created by Baoqiang Ma to extract a bouding box including primary tumor and lymph nodes for each patient
 # This code refered to the official bouding box extraction code in HECKTOR 2021 (https://github.com/voreille/hecktor/blob/master/src/data/bounding_box.py) 
 
 
@@ -103,30 +103,15 @@ def bbox_auto(sitk_pt, pID, output_shape=(144, 144, 144), th=3):
     bb = np.asarray((x_abs, y_abs, z_abs)).flatten()
     
     
-    # save image_withoutbrain    
-    np_pt_brain =   binary_dilation(np_pt_brain,  iterations= 5 )
-    np_pt_withoutbrain  =  np_pt * (1 - np_pt_brain)                                
-    np_pt_withoutbrain = sitk.GetImageFromArray(np.transpose(np_pt_withoutbrain, (2 , 1, 0)))  
-    np_pt_withoutbrain.CopyInformation(sitk_pt)
-    
-    # training set
-    sitk.WriteImage(np_pt_withoutbrain, './Data/hecktor2022/imagesTr_PT_nobrain/' + str(pID) + "__PT_nobrain.nii.gz")
-    # tetsing set
-    #sitk.WriteImage(np_pt_withoutbrain, './Data/hecktor2022_testing/imagesTs_PT_nobrain/' + str(pID) + "__PT_nobrain.nii.gz")
-    
     return bb
 
 
-# training set
-patient_info_path = './Data/hecktor2022_patient_info_training.csv'
-pet_path = './Data/hecktor2022/imagesTr/'
-bb_save_path = './Data/hecktor2022/bb_box/bb_box_training.csv'
-'''
-# testing set
-patient_info_path = ./Data/hecktor2022_clinical_info_testing.csv'
-pet_path = './Data/hecktor2022_testing/imagesTs/'
-bb_save_path = './Data/hecktor2022_testing/bb_box/bb_box_testing.csv'
-'''
+#
+patient_info_path = '../Data/hecktor2022_clinical_data_training_processed.csv'
+pet_path = '../Data/images/'
+bb_save_path = '../Data/bb_box/bb_box.csv'
+
+
 bb_df = pd.DataFrame(columns=['PatientID', 'x1', 'x2', 'y1', 'y2', 'z1', 'z2'])
 
 patinets_list = list (pd.read_csv(patient_info_path)['PatientID'])
