@@ -208,6 +208,8 @@ def main():
                 
                 for image in opt.input_modality:
                     sub_data = batch_data[image].to(device)   
+                    if image == 'gtv':
+                        sub_data[sub_data > 0] = 1
                     inputs = torch.cat((inputs,sub_data), 1)
                 optimizer.zero_grad()
                 if '_m' in opt.model: # clinical
@@ -249,6 +251,8 @@ def main():
                         
                         for image in opt.input_modality:
                             sub_data = val_data[image].to(device)
+                            if image == 'gtv':
+                                sub_data[sub_data > 0] = 1
                             val_images = torch.cat((val_images,sub_data), 1)
 
                         with torch.no_grad():
@@ -354,6 +358,8 @@ def main():
 
                 for image in opt.input_modality:
                     sub_data = test_data[image].to(device)
+                    if image == 'gtv':
+                         sub_data[sub_data > 0] = 1
                     test_images = torch.cat((test_images,sub_data), 1)
                     
                 with torch.no_grad():
