@@ -336,7 +336,7 @@ def main():
         if wandb.run.resumed:
             # for read the history wandb saved values
             api = wandb.Api()
-            run = api.run('mbq1137723824/Hecktor_outpred_DeepSurv/' + opt.resume_id)
+            run = api.run('mbq1137723824/TransRP/' + opt.resume_id)
             print (run.summary['Final test_c-index']) 
             history_test_cindex = run.history(keys=['Final test_c-index']).loc[0, 'Final test_c-index']
             print (history_test_cindex)
